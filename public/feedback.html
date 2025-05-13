@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Student Internship Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body class="feedback-page">
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-briefcase"></i> InternFlow
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="feedback.html">Feedback</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                    <a href="signup.html" class="btn btn-light">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Feedback Hero -->
+    <section class="py-5">
+        <div class="container">
+            <div class="boxed-section">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-5 fw-bold mb-4">Share Your Feedback</h1>
+                    <p class="lead mb-0">Your feedback helps us improve our platform and provide a better experience for all students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="py-5">
+        <div class="container">
+            <div class="boxed-section">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="mb-4">We Value Your Opinion</h2>
+                        <p class="mb-4">Please take a moment to share your thoughts, suggestions, or report any issues you've encountered while using our platform.</p>
+                        
+                        <form id="feedback-form" method="POST" action="/submit-feedback">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="feedback-type" class="form-label">Feedback Type</label>
+                                    <select class="form-select" id="feedback-type" name="type" required>
+                                        <option value="" selected disabled>Select feedback type</option>
+                                        <option value="suggestion">Suggestion</option>
+                                        <option value="issue">Report an Issue</option>
+                                        <option value="compliment">Compliment</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Your Feedback</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Rate Your Experience</label>
+                                    <div class="rating">
+                                        <div class="d-flex gap-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                                                <label class="form-check-label" for="rating1">1</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                                                <label class="form-check-label" for="rating2">2</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                                                <label class="form-check-label" for="rating3">3</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                                                <label class="form-check-label" for="rating4">4</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="rating" id="rating5" value="5" checked>
+                                                <label class="form-check-label" for="rating5">5</label>
+                                            </div>
+                                        </div>
+                                        <div class="text-muted small mt-1">1 = Poor, 5 = Excellent</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="contact-permission" name="permission">
+                                        <label class="form-check-label" for="contact-permission">
+                                            I agree to be contacted regarding my feedback if necessary.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i> Submit Feedback
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <div class="boxed-section">
+                <div class="testimonial-section">
+                    <h2 class="text-center mb-5">What Others Are Saying</h2>
+
+                    <!-- Carousel with auto-slide and hover pause -->
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover">
+                        <div class="carousel-inner">
+                            
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <div class="d-flex mb-3">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                </div>
+                                                <p class="mb-3">"This platform has helped me keep track of all my internship applications and deadlines seamlessly."</p>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="images/FB1.png" alt="User" class="rounded-circle me-3" width="50">
+                                                    <div>
+                                                        <h6 class="mb-0">Abhishek Yadav</h6>
+                                                        <small class="text-muted">Computer Science Student</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <div class="d-flex mb-3">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                                </div>
+                                                <p class="mb-3">"I love the intuitive UI! Looking forward to more reporting and analytics features."</p>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="images/FB2.png" alt="User" class="rounded-circle me-3" width="50">
+                                                    <div>
+                                                        <h6 class="mb-0">Adarsh Sharma</h6>
+                                                        <small class="text-muted">Mechanical Engineering Student</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <div class="d-flex mb-3">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                                </div>
+                                                <p class="mb-3">"Helped me stay organized throughout my entire internship journey, highly recommended."</p>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="images/FB3.jpg" alt="User" class="rounded-circle me-3" width="50">
+                                                    <div>
+                                                        <h6 class="mb-0">Abhay Chavan</h6>
+                                                        <small class="text-muted">IT Engineering Student</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <div class="d-flex mb-3">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                    <i class="fas fa-star text-warning"></i>
+                                                </div>
+                                                <p class="mb-3">"A great tool that every student should use. The dashboard is simple and efficient."</p>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="images/FB4.png" alt="User" class="rounded-circle me-3" width="50">
+                                                    <div>
+                                                        <h6 class="mb-0">Aarya Dange</h6>
+                                                        <small class="text-muted">Computer Science Student</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Controls with visible white background -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h5 class="fs-6"><i class="fas fa-briefcase me-2"></i>InternFlow</h5>
+                    <p class="text-white small">Helping students manage their internship journey effectively.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fs-6">Quick Links</h5>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="dashboard.html" class="footer-link small">Dashboard</a>
+                        <a href="about.html" class="footer-link small">About Us</a>
+                        <a href="contact.html" class="footer-link small">Contact</a>
+                        <a href="feedback.html" class="footer-link small">Feedback</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3 bg-secondary">
+            <div class="text-center">
+                <p class="text-white small mb-0">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2025 © InternFlow™ Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/feedback.js"></script>
+</body>
+</html>

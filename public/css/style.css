@@ -1,0 +1,458 @@
+:root {
+  --primary: #2563eb;
+  --secondary: #3b82f6;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --light: #f8fafc;
+  --dark: #1e293b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #f1f5f9;
+  color: var(--dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background images for different pages with darker overlay for better text readability */
+body.home-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/pic1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.dashboard-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/pic3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.feedback-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/pic2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.contact-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/pic4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.about-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/pic5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+}
+
+.btn-secondary {
+  background: #64748b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #475569;
+}
+
+/* Table Styles */
+.table-container {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  font-weight: 500;
+}
+
+tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* Status Badges */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.completed {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Status Dropdown */
+.status-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.status-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.status-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.status-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.status-dropdown:hover .status-dropdown-content {
+  display: block;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.action-btn.edit {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.action-btn.delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 5rem 0;
+}
+
+/* Feature Icons */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  padding-left: 1rem;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Content with background */
+.content-with-bg {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  table {
+    min-width: 800px;
+  }
+}
+
+/* Footer Styles */
+footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+/* Fixed footer for dashboard */
+body.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dashboard-page .container {
+  flex: 1 0 auto;
+}
+
+body.dashboard-page footer {
+  flex-shrink: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.6); /* Dark background */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: 70% 70%;
+}
+
+/* Boxed section styling - contains content in a white box with proper spacing */
+.boxed-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin: 0 auto 2rem auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Team section styling - constrained width to avoid stretching */
+.team-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Remove bottom margin from sections before footer */
+.no-bottom-margin {
+  margin-bottom: 0 !important;
+}
+
+/* Reduce padding for sections that need less space */
+.reduced-padding {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Map container styling */
+.map-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.map-container .container {
+  max-width: 1000px;
+}
+
+/* CTA section - remove margin before footer */
+.cta-section {
+  margin-bottom: 0 !important;
+}
+
+/* Footer spacing fix */
+footer.mt-5 {
+  margin-top: 0 !important;
+}
+
+/* Testimonial section styling */
+.testimonial-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* .card {
+  border-radius: 12px;
+  background-color: white;
+} */
