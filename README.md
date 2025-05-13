@@ -1,4 +1,4 @@
-
+![developer](https://img.shields.io/badge/Developed%20By%20%3A-Abhishek%20Verma-red)
 # 🌟 **Student Internship Tracker Portal**
 
 A **web-based portal** designed to help students and institutions manage and track **internship applications**, **statuses**, and **feedback**. This system provides an easy-to-use interface for students to apply for internships and for organizations to manage their internship applications.
